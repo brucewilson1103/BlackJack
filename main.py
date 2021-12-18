@@ -1,7 +1,17 @@
 ## The Jack/Queen/King all count as 10 and the Ace can count as 11 or 1.
 
 import random
-from replit import clear
+#from replit import clear # this does not work on Linux
+
+from os import system, name 
+def clear(): 
+  
+    # for windows 
+    if name == 'nt': 
+        _ = system('cls') 
+    # for mac and linux
+    else: 
+        _ = system('clear') 
 from art import logo
 
 def deal_card():
@@ -27,7 +37,8 @@ def compare(user_score, computer_score):
 
   if user_score == computer_score:
     return "Draw 🙃"
-  elif computer_score == 0:
+  #elif computer_score == 0:
+  elif computer_score == 21:
     return "Lose, opponent has Blackjack 😱"
   elif user_score == 0:
     return "Win with a Blackjack 😎"
